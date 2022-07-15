@@ -1,0 +1,64 @@
+[user]
+	email = tuvshinzaya.erdenekhuu@arm.com
+[color]
+	ui = auto
+[core]
+	editor = vim
+[merge]
+	tool = p4merge
+	keepBackup = false
+
+[mergetool "p4merge"]
+        cmd = /opt/perforce/bin/p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
+        keepTemporaries = false
+        trustExitCode = false
+
+[diff]
+	tool = p4merge
+
+[difftool]
+        prompt = false
+
+[difftool "p4merge"]
+        cmd = /opt/perforce/bin/p4merge "$LOCAL" "$REMOTE"
+        keepTemporaries = false
+        trustExitCode = false
+        keepBackup = false
+
+
+[alias]
+	a    = add
+	# better blame
+        bb   = log -p -M --follow --stat -- 
+        br   = branch -vv
+        brf  = branch -avv
+        co   = checkout
+        cp   = cherry-pick
+        d    = diff -p --stat
+        ds   = diff -p --stat --staged
+        dc   = !git --no-pager diff --check
+        dcs  = !git --no-pager diff --check --staged
+        dsc  = !git --no-pager diff --check --staged
+        dst  = !git --no-pager diff --stat
+        dsst = !git --no-pager diff --stat --staged
+        dt   = difftool
+        dts  = difftool --staged
+        g    = grep
+        l    = log -n 100
+        lg   = !PAGER=less git log --decorate --graph
+        lp   = log -p -n 100
+        lo   = !git --no-pager log --oneline -n 20
+        lon  = "!git lo --color \"$@\" | { nr=0; while read line; do printf \"%3d: $line\n\" $((nr++)); done; } #"
+        ls   = log --stat -n 100
+  		mt   = mergetool
+  		rev  = revert
+        rl   = reflog
+        s    = show --stat --patch
+        sl   = stash list --stat
+	#show commit visually
+	st   = "!showci () { rev=$(git rev-parse \"${*:-HEAD}\"); git difftool $rev~1 $rev; }; showci"
+        sta  = status
+ 		stnu = status -uno
+  		sw   = switch
+[pager]
+	branch = false
