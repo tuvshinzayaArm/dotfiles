@@ -1,0 +1,4 @@
+:set relativenumber
+:set number
+
+:highlight Normal ctermbg=black

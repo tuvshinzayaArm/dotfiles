@@ -1,4 +1,4 @@
- # If you come from bash you might have to change your $PATH.
+# If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
@@ -112,3 +112,8 @@ alias ta='tmux attach -t'
 alias tn='tmux new-session'
 alias tnn='tmux new -s'
 alias tl='tmux list-sessions'
+
+# chezmoi edit file
+alias ce="chezmoi edit"
+alias cva="chezmoi -v apply"
+alias cdif="chezmoi diff"
